@@ -1,205 +1,128 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senja Coffee | Dark Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            /* Palette Cokelat Tua */
-            --bg-deep: #1a0f0a; /* Espresso Hitam */
-            --bg-card: rgba(45, 27, 20, 0.6); 
-            --accent: #e6b88a; /* Krem Champagne */
-            --text-main: #f9f4f0;
-            --shadow: 0 20px 50px rgba(0,0,0,0.6);
-            --transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-        }
+:root {
+    --bg-light: #f4ece1; /* Cokelat muda / beige */
+    --coffee-dark: #3e2723; /* Cokelat tua untuk teks */
+    --accent: #a1887f; /* Cokelat medium untuk detail */
+    --white: #ffffff;
+    --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-deep);
-            /* Gradasi Cokelat Tua agar tidak flat */
-            background: radial-gradient(circle at center, #2d1b14 0%, #1a0f0a 100%);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
-        }
+body {
+    margin: 0;
+    background-color: var(--bg-light);
+    color: var(--coffee-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-        header {
-            text-align: center;
-            padding: 100px 20px 60px;
-        }
+header {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin: 0;
-            color: var(--accent);
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
-        }
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 700;
+}
 
-        header p {
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            opacity: 0.7;
-            color: #d4a373;
-        }
+header p {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: 10px;
+}
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 120px;
-        }
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+}
 
-        /* Card Aesthetic Cokelat Tua */
-        .card {
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(230, 184, 138, 0.1);
-            border-radius: 35px;
-            overflow: hidden;
-            transition: var(--transition);
-            animation: fadeInUp 1s ease forwards;
-        }
+/* Card Minimalis Aesthetic */
+.card {
+    background: var(--white);
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(93, 64, 55, 0.05);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.02);
+}
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(93, 64, 55, 0.12);
+}
 
-        .card:hover {
-            transform: translateY(-20px);
-            border-color: var(--accent);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            background: rgba(45, 27, 20, 0.9);
-        }
+.img-box {
+    width: 100%;
+    height: 350px;
+    border-radius: 30px;
+    overflow: hidden;
+}
 
-        .img-box {
-            width: 100%;
-            height: 300px;
-            position: relative;
-        }
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+}
 
-        .img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.5s ease;
-        }
+.card:hover .img-box img {
+    transform: scale(1.1);
+}
 
-        .card:hover .img-box img {
-            transform: scale(1.15);
-        }
+.content {
+    padding: 30px 20px;
+    text-align: center;
+}
 
-        /* Overlay Gradasi pada Gambar agar menyatu */
-        .img-box::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 100%; height: 50%;
-            background: linear-gradient(to top, var(--bg-card), transparent);
-        }
+.content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin: 0 0 15px 0;
+}
 
-        .content {
-            padding: 30px;
-            text-align: center;
-        }
+.description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #6d4c41;
+    margin-bottom: 25px;
+}
 
-        .content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-            color: var(--accent);
-        }
+.price {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
 
-        .description {
-            font-size: 0.9rem;
-            color: #bfa899;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
+.btn {
+    display: inline-block;
+    background: var(--coffee-dark);
+    color: var(--white);
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
 
-        .price {
-            display: block;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #fff;
-        }
+.btn:hover {
+    background: var(--accent);
+    letter-spacing: 1px;
+}
 
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: #1a0f0a;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(230, 184, 138, 0.2);
-        }
+/* Animasi Halus saat Load */
+.card {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
 
-        .btn:hover {
-            background: #fff;
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <p>Sensation in Every Sip</p>
-    <h1>Senja Coffee.</h1>
-</header>
-
-<div class="container">
-    <div class="card">
-        <div class="img-box">
-            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600" alt="Senja Klasik">
-        </div>
-        <div class="content">
-            <h3>gula aren</h3>
-            <p class="description">Harmoni espresso arabika dan susu kental yang dipadukan dengan kemurnian gula aren pilihan.</p>
-            <span class="price">Rp 18.000</span>
-            <a href="#" class="btn">Order Now</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="img-box">
-            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=600" alt="Lembayung Berry">
-        </div>
-        <div class="content">
-            <h3>Lembayung Berry</h3>
-            <p class="description">Kopi cold brew dengan sentuhan raspberry liar yang segar. Kejutan rasa di setiap tegukan.</p>
-            <span class="price">Rp 22.000</span>
-            <a href="#" class="btn">Order Now</a>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="img-box">
-            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=600" alt="Midnight Mocha">
-        </div>
-        <div class="content">
-            <h3>Midnight Mocha</h3>
-            <p class="description">Double shot espresso bertemu dengan lelehan cokelat hitam premium. Pekat dan menggoda.</p>
-            <span class="price">Rp 25.000</span>
-            <a href="#" class="btn">Order Now</a>
-        </div>
-    </div>
-
-    
-
-</body>
-</html>
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
